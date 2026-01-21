@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#neonGlow)">
+      <path d="M40 6 L68 16 V38 C68 56 56 70 40 76 C24 70 12 56 12 38 V16 L40 6 Z" stroke="url(#shieldGrad)" stroke-width="3" fill="none"/>
+      
+      <path d="M40 20 V60" stroke="url(#shieldGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+      <path d="M24 38 H56" stroke="url(#shieldGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+      
+      <path d="M40 20 L28 32" stroke="url(#shieldGrad)" stroke-width="1.5" opacity="0.6"/>
+      <path d="M40 20 L52 32" stroke="url(#shieldGrad)" stroke-width="1.5" opacity="0.6"/>
+      <path d="M28 44 L40 56" stroke="url(#shieldGrad)" stroke-width="1.5" opacity="0.6"/>
+      <path d="M52 44 L40 56" stroke="url(#shieldGrad)" stroke-width="1.5" opacity="0.6"/>
+
+      <circle cx="40" cy="38" r="6" fill="url(#glowGrad)"/>
+      <circle cx="40" cy="38" r="10" stroke="url(#glowGrad)" stroke-width="1" opacity="0.5"/>
+  </g>
+</svg>

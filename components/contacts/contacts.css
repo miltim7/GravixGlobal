@@ -1,0 +1,199 @@
+/* components/contacts/contacts.css */
+.contacts {
+  background: var(--primary-bg);
+  padding: var(--block-top-indent) 0;
+  position: relative;
+}
+
+.contacts__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.contacts__header {
+  margin-bottom: 60px;
+}
+
+.contacts__title {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--primary-text);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.contacts__subtitle {
+  font-size: 20px;
+  color: var(--secondary-text);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contacts__grid {
+  display: grid;
+  /* 3 карточки в одну строку на десктопе/табе */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 50px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.contacts__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 30px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease-out forwards;
+  border: 1px solid var(--border-primary);
+}
+
+.contacts__item:nth-child(1) { animation-delay: 0.2s; }
+.contacts__item:nth-child(2) { animation-delay: 0.4s; }
+.contacts__item:nth-child(3) { animation-delay: 0.6s; }
+
+.contacts__item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent-primary);
+}
+
+.contacts__icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contacts__icon-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--transition);
+}
+
+.contacts__item:hover .contacts__icon-wrapper::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contacts__icon {
+  width: 40px;
+  height: 40px;
+  fill: var(--accent-primary);
+  position: relative;
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.contacts__item:hover .contacts__icon {
+  fill: var(--primary-text);
+  transform: scale(1.1);
+}
+
+.contacts__item-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin-bottom: 12px;
+}
+
+.contacts__item-link {
+  font-size: 18px;
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.contacts__item-link:hover {
+  color: var(--accent-hover);
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .contacts {
+    padding: 120px 0;
+  }
+  
+  .contacts__title {
+    font-size: 40px;
+  }
+  
+  .contacts__subtitle {
+    font-size: 18px;
+  }
+  
+  .contacts__grid {
+    /* на табе тоже оставляем 3 колонки, но чуть меньше отступ */
+    gap: 35px;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts {
+    padding: 80px 0;
+  }
+  
+  .contacts__title {
+    font-size: 32px;
+  }
+  
+  .contacts__subtitle {
+    font-size: 16px;
+  }
+  
+  .contacts__grid {
+    /* на мобиле карточки друг под другом */
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 500px;
+  }
+  
+  .contacts__item {
+    padding: 30px 25px;
+  }
+  
+  .contacts__icon-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .contacts__icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .contacts__item-title {
+    font-size: 22px;
+  }
+  
+  .contacts__item-link {
+    font-size: 16px;
+  }
+}

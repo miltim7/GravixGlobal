@@ -1,0 +1,250 @@
+/* components/applications/applications.css */
+.applications {
+  background: var(--gradient-surface);
+  padding: var(--block-top-indent) 0;
+  position: relative;
+}
+
+.applications::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-accent);
+  opacity: 0.8;
+}
+
+.applications__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.applications__areas {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease-out 0.2s forwards;
+}
+
+.applications__separator {
+  position: relative;
+  height: 6px;
+  background: var(--gradient-accent);
+  opacity: 0.8;
+  margin: 20px 0;
+}
+
+.applications__partners {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease-out 0.4s forwards;
+}
+
+.applications__section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin-bottom: 40px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.applications__areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.applications__area {
+  text-align: center;
+  padding: 0;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpItem 0.6s ease-out forwards;
+  border: 1px solid var(--border-primary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.applications__area:nth-child(1) {
+  animation-delay: 0.6s;
+}
+
+.applications__area:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.applications__area:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.applications__area:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.applications__area:nth-child(5) {
+  animation-delay: 1.0s;
+}
+
+.applications__area:nth-child(6) {
+  animation-delay: 1.1s;
+}
+
+.applications__area:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent-primary);
+}
+
+.applications__area-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.applications__area-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin: 0;
+  line-height: 1.3;
+  padding: 20px;
+  background: var(--card-bg);
+}
+
+.applications__partners-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.applications__partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 60px;
+  background: #dbdbdb;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: scaleIn 0.6s ease-out forwards;
+  border: 1px solid var(--border-primary);
+}
+
+.applications__partner:nth-child(1) {
+  animation-delay: 1.2s;
+}
+
+.applications__partner:nth-child(2) {
+  animation-delay: 1.3s;
+}
+
+.applications__partner:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+.applications__partner:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent-primary);
+}
+
+.applications__partner-logo {
+  max-width: 200px;
+  height: 80px;
+  object-fit: contain;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .applications {
+    padding: 120px 0;
+  }
+
+  .applications__container {
+    gap: 60px;
+  }
+
+  .applications__section-title {
+    font-size: 32px;
+  }
+
+  .applications__areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .applications {
+    padding: 80px 0;
+  }
+
+  .applications__section-title {
+    font-size: 28px;
+  }
+
+  .applications__areas-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .applications__area {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .applications__area-title {
+    padding: 15px;
+  }
+
+  .applications__partners-grid {
+    gap: 20px;
+  }
+
+  .applications__partner {
+    padding: 35px 45px;
+  }
+
+  .applications__partner-logo {
+    max-width: 150px;
+    height: 60px;
+  }
+}

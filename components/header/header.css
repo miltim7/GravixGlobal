@@ -1,0 +1,232 @@
+.header {
+    background: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-secondary);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-text);
+    transition: var(--transition);
+}
+
+.header__logo:hover {
+    color: var(--accent-primary);
+}
+
+.header__logo-accent {
+    color: var(--accent-primary);
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__nav-list {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav-link {
+    text-decoration: none;
+    color: var(--primary-text);
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.header__nav-link:hover {
+    color: var(--accent-primary);
+}
+
+.header__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: var(--transition);
+}
+
+.header__nav-link:hover::after {
+    width: 100%;
+}
+
+.header__phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.header__phone:hover {
+    color: var(--accent-primary);
+}
+
+.header__phone-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.header__cta {
+    margin-left: 24px;
+}
+
+.header__burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.header__burger-line {
+    width: 24px;
+    height: 2px;
+    background: var(--primary-text);
+    transition: var(--transition);
+}
+
+.header__mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--secondary-bg);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    padding: 32px 20px;
+}
+
+.header__mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.header__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.header__mobile-nav a {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-text);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.header__mobile-nav a:hover {
+    color: var(--accent-primary);
+}
+
+.header__mobile-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Языковой переключатель для Десктопа */
+.header__lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+/* Языковой переключатель для Мобильного меню */
+.header__mobile-lang {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-secondary);
+}
+
+.lang-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-text);
+    border: 1px solid var(--border-secondary);
+    background: transparent;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.lang-link:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.lang-link--active {
+    color: #fff;
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px rgba(var(--accent-primary-rgb), 0.3);
+    pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+    .header {
+        position: relative;
+    }
+    
+    .header__nav {
+        display: none;
+    }
+    
+    .header__phone {
+        display: none;
+    }
+    
+    .header__cta {
+        display: none;
+    }
+    
+    .header__burger {
+        display: flex;
+    }
+}
